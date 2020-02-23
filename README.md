@@ -9,7 +9,7 @@ Controls:
 CTRL+ALT+F4 = Attempts to forcefully terminate the process that is focused on.
 CTRL+SHIFT+ALT+F4 = Shows Console for Debugging Purposes.
 
-##LICENSE:
+## LICENSE:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
