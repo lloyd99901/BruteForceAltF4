@@ -1,7 +1,9 @@
 # BruteForceAltF4
 
 ## About
-Have you ever wanted to close a program, only for it to not close? You try everything. Task manager doesn't open because the program hung the system or made it so slow you think it'll take years for task manager to appear, you try ALT+F4 and still nothing? BruteForceAltF4 runs in the background, consuming only 1MB of RAM and never hogs the CPU. Whenever you have a program that isn't responding and isn't closing anytime soon, using CTRL+ALT+F4 forcefully kills the task without any questions. BruteForceAltF4 can kill almost any task you throw at it.
+Have you ever wanted to close a program, only for it to not close? You try everything. Task manager doesn't open because the program hung the system or made it so slow you think it'll take years for task manager to appear, you try ALT+F4 and still nothing? 
+BruteForceAltF4 runs in the background, consuming only 1MB of RAM and never hogs the CPU. Whenever you have a program that isn't responding and isn't closing anytime soon, using CTRL+ALT+F4 forcefully kills the task without any questions. 
+BruteForceAltF4 can kill almost any task you throw at it.
 
 ## Instructions
 The program will show a console for a split second before hiding itself, this is normal.
