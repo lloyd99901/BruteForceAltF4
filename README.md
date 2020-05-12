@@ -1,5 +1,8 @@
 # BruteForceAltF4
 [![CodeFactor](https://www.codefactor.io/repository/github/lloyd99901/bruteforcealtf4/badge)](https://www.codefactor.io/repository/github/lloyd99901/bruteforcealtf4)
+[![GitHub issues](https://img.shields.io/github/issues/lloyd99901/BruteForceAltF4)](https://github.com/lloyd99901/BruteForceAltF4/issues)
+[![GitHub forks](https://img.shields.io/github/forks/lloyd99901/BruteForceAltF4)](https://github.com/lloyd99901/BruteForceAltF4/network)
+[![GitHub stars](https://img.shields.io/github/stars/lloyd99901/BruteForceAltF4)](https://github.com/lloyd99901/BruteForceAltF4/stargazers)
 ## About
 Have you ever wanted to close a program, only for it to not close? You try everything. Task manager doesn't open because the program hung the system or made it so slow you think it'll take years for task manager to appear, you try ALT+F4 and still nothing? 
 BruteForceAltF4 runs in the background, consuming only 1MB of RAM and never hogs the CPU. Whenever you have a program that isn't responding and isn't closing anytime soon, using CTRL+ALT+F4 forcefully kills the task without any questions. 
