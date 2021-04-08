@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <fstream>
+#include <stdlib.h> 
 #include <psapi.h>
 
 using namespace std;
@@ -60,7 +61,7 @@ int main() {
 		cout << "Settings does not exist!\n";
 		int msgboxID = MessageBox(
 			NULL,
-			"Welcome to Brute Force Alt F4!\nThis program allows you to forcefully close programs that aren't closing anytime soon using CTRL+Alt+F4\nIn order to use this program you must agree to the license provided which should be next to the executable. By clicking yes, you agree to be bound by the terms stated in the license. If you don't have the license file or you don't agree to the terms, click no to exit. This message will only appear once.",
+			"Welcome to Brute Force Alt F4!\nThis program allows you to forcefully close programs that aren't closing anytime soon using CTRL+Alt+F4\nIn order to use this program you must agree to the license provided which should be next to the executable. By clicking yes, you agree to be bound by the terms stated in the license (Modified MIT license). If you don't have the license file or you don't agree to the terms, click no to exit. This message will only appear once.",
 			"Info - Brute Force Alt F4",
 			MB_ICONINFORMATION | MB_YESNO | MB_DEFBUTTON1
 		);
@@ -75,7 +76,10 @@ int main() {
 	else {
 		//Read if the settings.ini file has debug mode enabled, if so, show the console.
 	}
-	if (RegisterHotKey(NULL, 1, MOD_ALT | MOD_CONTROL | MOD_NOREPEAT, 0x73) and RegisterHotKey(NULL, 2, MOD_ALT | MOD_CONTROL | MOD_SHIFT | MOD_NOREPEAT, 0x73)) {cout << "Hotkeys Register Success!\n";}
+	//CTRL + ALT + SHIFT + F4 = Show/hide console
+	//CTRL + ALT + SHIFT + F3 = Kill not responding tasks
+	//CTRL + ALT + F4 = Kill task
+	if (RegisterHotKey(NULL, 1, MOD_ALT | MOD_CONTROL | MOD_NOREPEAT, 0x73) and RegisterHotKey(NULL, 2, MOD_ALT | MOD_CONTROL | MOD_SHIFT | MOD_NOREPEAT, 0x73) and RegisterHotKey(NULL, 3, MOD_ALT | MOD_CONTROL | MOD_SHIFT | MOD_NOREPEAT, 0x72)) {cout << "Hotkeys Register Success!\n";}
 	else {
 		MessageBox(
 			NULL,
@@ -88,7 +92,7 @@ int main() {
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0) != 0) {
 		PeekMessage(&msg, 0, 0, 0, 0x0001);
-		cout << msg.message << "\n";
+		//cout << msg.message << "\n";
 		switch (msg.message) {
 			case WM_HOTKEY:
 				if (msg.wParam == 1) {
@@ -97,14 +101,20 @@ int main() {
 				}
 				else if (msg.wParam == 2) {
 					cout << "hotkey id 2 recieved\n";
-					if (hidden) {ShowConsole();}
-					else {HideConsole();}
+					if (hidden) { ShowConsole(); }
+					else { HideConsole(); }
 					hidden = !hidden;
 					//settings window maybe?
 					//return 0;
 				}
+				else if (msg.wParam == 3) {
+					cout << "hotkey id 3 recieved\n";
+					system("taskkill.exe /F /FI \"status eq NOT RESPONDING\"");
+				}
+
+
 		}
-		cout << "Recieved HotKey!\n";
+		//cout << "Recieved HotKey!\n";
 		//killFocusedWindow();
 	}
 }
