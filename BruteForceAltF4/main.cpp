@@ -6,8 +6,12 @@
 #include <psapi.h>
 
 using namespace std;
-void HideConsole() { ::ShowWindow(::GetConsoleWindow(), SW_HIDE); }
-void ShowConsole() { ::ShowWindow(::GetConsoleWindow(), SW_SHOW); }
+void HideConsole() { 
+	::ShowWindow(::GetConsoleWindow(), SW_HIDE); 
+}
+void ShowConsole() {
+	::ShowWindow(::GetConsoleWindow(), SW_SHOW); 
+}
 UINT DefaultMsgBoxTypes = MB_ICONERROR | MB_OK | MB_DEFBUTTON1;
 void killFocusedWindow() {
 	DWORD processID;
@@ -24,13 +28,19 @@ void killFocusedWindow() {
 	string NameProc1 = nameProc;
 
 	//or NameProc1.find("\\SearchUI.exe") != string::npos
-	if (NameProc1.find("\\explorer.exe") != string::npos ) { cout << "Program cannot be terminated! In the exclusions list\n";return;}
+	if (NameProc1.find("\\explorer.exe") != string::npos ) 
+	{ 
+		cout << "Program cannot be terminated! In the exclusions list\n";return;
+	}
 
 	int errorcode = TerminateProcess(process1, 1);
 	CloseHandle(process1);
 	NameProc1.clear();
 	cout << errorcode << "BRU\n";
-	if (errorcode == 1) {cout << "Terminated Process By ID\n";}
+	if (errorcode == 1) 
+	{
+		cout << "Terminated Process By ID\n";
+	}
 	else if (errorcode == 0) {
 		cout << "Termination Failed! Elevated Permissions Could Be Required!\n";
 		MessageBox(
@@ -47,8 +57,13 @@ bool FileExist(string path)
 {
 	ifstream file(path);
 	if (file.is_open())
-	{return 1;file.close();}
-	else{return 0;}
+	{
+		return 1;file.close();
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 int main() {
